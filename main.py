@@ -1,6 +1,6 @@
 from flask import Flask,request,jsonify,json,redirect
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, ForeignKey, Integer, String,Date
+from sqlalchemy import Column, ForeignKey, Integer, String,Date,and_,or_
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from models import db,LogIn,Planets,Characters,Favorites
@@ -9,7 +9,7 @@ from admin import setup_admin
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///test.db'
 # db=SQLAlchemy(app)
-db.init_app(app)             #la db fue creada en models, acá no se, la inicializo
+db.init_app(app)             #la db fue creada en models, acá no se, la inicializo creo
 
 
 
@@ -58,6 +58,8 @@ def get_users():
     users=LogIn.query.all()
     serializadoenlista=list(map(lambda x:x.serialize_users(),users))
     return jsonify(serializadoenlista),200
+
+    
 @app.route('/users/<int:user_id>/favorites',methods=['GET','POST'])
 def from_users_method_favorites(user_id):
     if request.method=='GET':
@@ -65,20 +67,27 @@ def from_users_method_favorites(user_id):
         serializadoenlista=list(map(lambda x:x.serialize_favorites(),favoritos))
         return jsonify(serializadoenlista),200
     else:
-        # data=request.data
-        # decode_objet=json.loads(data)
         decode_objet=request.get_json()
         print(decode_objet)
+
         data_type=decode_objet.get('tipo')
-        planet_id=decode_objet.get('P_id')
-        characters_id=decode_objet.get('C_id')
-        user_id=decode_objet['user_id']
-        print(data_type,planet_id,characters_id,user_id)
+        planet_id=decode_objet.get('planet_id')
+        characters_id=decode_objet.get('character_id')
+        # Con esta query digo.. si el user id ya cuenta con el planeta y el personaje no es null o  si el user id ya cuenta con personaje ey el planeta no es null, traigamelo...
+        favoritos_existentes=Favorites.query.filter(or_(and_(Favorites.user_id==user_id,Favorites.planets_id==planet_id,Favorites.planets_id!=None),and_(Favorites.user_id==user_id,Favorites.characters_id==characters_id,Favorites.characters_id!=None))).all()
+        #si ya el favorito ya fue agregado, no lo agregue
+        if len(favoritos_existentes)>0:
+            return "This favorite was already added"
+            
+
+        # si el elemento buscado no existe, no agregue nada
+        if Planets.query.get(planet_id)==None and Characters.query.get(characters_id)==None:
+            return "This element does not exist"
+        
         new_post=Favorites(data_type=data_type,planets_id=planet_id,characters_id=characters_id,user_id=user_id)
-        print(new_post)
+        
         db.session.add(new_post)
         db.session.commit()
-        print('se supone que se agregó')
         return redirect('/users/<int:user_id>/favorites')
 
 @app.route('/favorite/<int:favorite_id>',methods=['DELETE'])
@@ -91,7 +100,7 @@ def delete_favorite(favorite_id):
     return jsonify({"msg":"Favorite deleted"}),200
 
     
-setup_admin(app)
+setup_admin(app)            #Se llama a admin
 
 
 if __name__=="__main__":
