@@ -11,8 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="677a68aa-041e-43df-a390-a108649c9728" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
@@ -79,35 +77,36 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1345" height="490" key="GridCell.Tab.0.bottom" timestamp="1614725327928">
+    <state width="1345" height="526" key="GridCell.Tab.0.bottom" timestamp="1614753021451">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="330" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614721721603" />
-    <state width="1345" height="490" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614725327928" />
-    <state width="1345" height="490" key="GridCell.Tab.0.center" timestamp="1614725327928">
+    <state width="1345" height="534" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614752535763" />
+    <state width="1345" height="526" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614753021451" />
+    <state width="1345" height="526" key="GridCell.Tab.0.center" timestamp="1614753021450">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="330" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614721721603" />
-    <state width="1345" height="490" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614725327928" />
-    <state width="1345" height="490" key="GridCell.Tab.0.left" timestamp="1614725327928">
+    <state width="1345" height="534" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614752535763" />
+    <state width="1345" height="526" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614753021450" />
+    <state width="1345" height="526" key="GridCell.Tab.0.left" timestamp="1614753021450">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="330" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614721721603" />
-    <state width="1345" height="490" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614725327928" />
-    <state width="1345" height="490" key="GridCell.Tab.0.right" timestamp="1614725327928">
+    <state width="1345" height="534" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614752535763" />
+    <state width="1345" height="526" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614753021450" />
+    <state width="1345" height="526" key="GridCell.Tab.0.right" timestamp="1614753021450">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="330" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614721721603" />
-    <state width="1345" height="490" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614725327928" />
+    <state width="1345" height="534" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1614752535763" />
+    <state width="1345" height="526" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614753021450" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>74</line>
+          <line>11</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
