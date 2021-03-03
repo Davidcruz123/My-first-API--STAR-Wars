@@ -37,7 +37,7 @@ def get_person(people_id):
         print(serializado)
         return jsonify(serializado),200
     except:
-        return 'This person does not exist'
+        return '404 resource not found',404
 
 @app.route('/planets',methods=['GET'])
 def get_planets():
@@ -100,7 +100,7 @@ def delete_favorite(favorite_id):
     elemento=Favorites.query.get(favorite_id)
     print(elemento)
     if elemento==None:
-        return "Elemento does not exist" ,404   
+        return "Element does not exist" ,404   
     db.session.delete(elemento)
     db.session.commit()
     return jsonify({"msg":"Favorite deleted"}),200
