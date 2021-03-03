@@ -63,6 +63,8 @@ def get_users():
 @app.route('/users/<int:user_id>/favorites',methods=['GET','POST'])
 def from_users_method_favorites(user_id):
     if request.method=='GET':
+        if LogIn.query.get(user_id)==None:
+            return '404, resorce not found',404
         favoritos=Favorites.query.filter_by(user_id=user_id).all()
         serializadoenlista=list(map(lambda x:x.serialize_favorites(),favoritos))
         return jsonify(serializadoenlista),200
@@ -83,6 +85,8 @@ def from_users_method_favorites(user_id):
         # si el elemento buscado no existe, no agregue nada
         if Planets.query.get(planet_id)==None and Characters.query.get(characters_id)==None:
             return "This element does not exist"
+        elif LogIn.query.get(user_id)==None:
+            return '404 resource not found'
         
         new_post=Favorites(data_type=data_type,planets_id=planet_id,characters_id=characters_id,user_id=user_id)
         
@@ -94,7 +98,9 @@ def from_users_method_favorites(user_id):
 def delete_favorite(favorite_id):
     print(favorite_id)
     elemento=Favorites.query.get(favorite_id)
-    print(elemento)    
+    print(elemento)
+    if elemento==None:
+        return "Elemento does not exist" ,404   
     db.session.delete(elemento)
     db.session.commit()
     return jsonify({"msg":"Favorite deleted"}),200
