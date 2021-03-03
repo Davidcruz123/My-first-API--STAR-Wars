@@ -8,7 +8,8 @@ from admin import setup_admin
 
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///test.db'
-db=SQLAlchemy(app)
+# db=SQLAlchemy(app)
+db.init_app(app)             #la db fue creada en models, acá no se, la inicializo
 
 
 
