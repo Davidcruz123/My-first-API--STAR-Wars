@@ -39,7 +39,8 @@ class Characters(db.Model):
     picture_url = Column(String(200))
     height=Column(Integer)
     mass=Column(Integer)
-    birth_year=Column(Date)
+    birth_year=Column(String(20))
+    data_type=Column(String(30))
 
     def __repr__(self):
         return 'Personaje %r' %self.name                   #esta funcion es predeterminada para que devuelva un string
@@ -57,7 +58,8 @@ class Characters(db.Model):
            "picture_url":self.picture_url,
            "height":self.height,
            "mass":self.mass,
-           "birth_year":self.birth_year
+           "birth_year":self.birth_year,
+           "data_type":self.data_type
         }
 
 
@@ -73,8 +75,9 @@ class Planets(db.Model):
     diameter=Column(Integer)
     rotation_period=Column(Integer)
     orbital_period=Column(Integer)
-    population=Column(Integer)
+    population=Column(String(20))
     surface_water=Column(Integer)
+    data_type=Column(String(30))
 
     def __repr__(self):
         return 'Planeta %r' %self.name 
@@ -91,7 +94,8 @@ class Planets(db.Model):
            "rotation_period":self.rotation_period,
            "orbital_period":self.orbital_period,
            "population":self.population,
-           "surface_water":self.surface_water
+           "surface_water":self.surface_water,
+           "data_type":self.data_type
         }
 
 
